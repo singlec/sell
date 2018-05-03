@@ -1,6 +1,7 @@
 package com.imooc.service;
 
 import com.imooc.dataobject.ProductInfo;
+import com.imooc.service.impl.ProductServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +24,7 @@ public class ProductServiceImplTest {
 
     @Test
     public void findOne() {
-        ProductInfo one = service.findOne("1");
+        ProductInfo one = service.findOne("123");
         assertEquals(one.getProductId(),"1");
     }
 
