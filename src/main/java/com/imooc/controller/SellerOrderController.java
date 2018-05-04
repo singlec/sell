@@ -1,7 +1,8 @@
 package com.imooc.controller;
 
-import com.imooc.VO.ResultVO;
 import com.imooc.dto.OrderDTO;
+import com.imooc.enums.ResultEnum;
+import com.imooc.exception.SellException;
 import com.imooc.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -43,6 +44,61 @@ public class SellerOrderController {
         map.put("size", size);
 
         return new ModelAndView("order/list", map);
+    }
 
+    /**
+     * 订单详情
+     * @param orderId 订单id
+     */
+    @GetMapping("/detail")
+    public ModelAndView detail(@RequestParam(name = "orderId") String orderId,
+                                   Map<String,Object> map) {
+        OrderDTO orderDTO = orderService.findOne(orderId);
+        map.put("orderDTO", orderDTO);
+
+        return new ModelAndView("order/detail", map);
+    }
+
+    /**
+     * 取消订单
+     * @param orderId 订单id
+     */
+    @GetMapping("/cancel")
+    public ModelAndView cancel(@RequestParam(name = "orderId") String orderId,
+                                   Map<String,Object> map) {
+        try {
+            OrderDTO orderDTO = orderService.findOne(orderId);
+            orderService.cancel(orderDTO);
+        } catch (SellException e) {
+            map.put("url", "/sell/seller/order/list");
+            map.put("msg", e.getMessage());
+            return new ModelAndView("common/error", map);
+        }
+
+        map.put("url", "/sell/seller/order/list");
+        map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
+
+        return new ModelAndView("common/success", map);
+    }
+    /**
+     * 完成订单
+     * @param orderId 订单id
+     */
+    @GetMapping("/finish")
+    public ModelAndView finish(@RequestParam(name = "orderId") String orderId,
+                                   Map<String,Object> map) {
+        try {
+            OrderDTO orderDTO = orderService.findOne(orderId);
+            orderService.finish(orderDTO);
+        } catch (SellException e) {
+            map.put("url", "/sell/seller/order/list");
+            map.put("msg", e.getMessage());
+            return new ModelAndView("common/error", map);
+        }
+
+        map.put("url", "/sell/seller/order/list");
+        map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
+
+        return new ModelAndView("common/success", map);
     }
 }

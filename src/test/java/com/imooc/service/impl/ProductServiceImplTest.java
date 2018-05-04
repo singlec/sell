@@ -1,4 +1,4 @@
-package com.imooc.service;
+package com.imooc.service.impl;
 
 import com.imooc.dataobject.ProductInfo;
 import com.imooc.service.impl.ProductServiceImpl;
@@ -24,8 +24,8 @@ public class ProductServiceImplTest {
 
     @Test
     public void findOne() {
-        ProductInfo one = service.findOne("123");
-        assertEquals(one.getProductId(),"1");
+        ProductInfo one = service.findOne("123456");
+        assertEquals(one.getProductId(),"123456");
     }
 
     @Test
@@ -44,15 +44,15 @@ public class ProductServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("112");
+        productInfo.setProductId("111333");
         productInfo.setCategoryType(2);
-        productInfo.setProductName("咸鸭蛋");
-        productInfo.setProductPrice(new BigDecimal(1.5));
-        productInfo.setProductDescription("端午来了");
+        productInfo.setProductName("口水鸡");
+        productInfo.setProductPrice(new BigDecimal(23.6));
+        productInfo.setProductDescription("本店招牌");
         productInfo.setProductStatus(0);
-        productInfo.setProductIcon("http://123.xianyadan.com");
-        productInfo.setProductStock(1000);
+        productInfo.setProductIcon("http://123.boboji.com");
+        productInfo.setProductStock(100);
         ProductInfo saved = service.save(productInfo);
-        assertEquals(saved.getProductId(),"112");
+        assertEquals(saved.getProductId(),"111333");
     }
 }

@@ -25,19 +25,19 @@ public class OrderServiceImplTest {
     private OrderService orderService;
 
     private static final String BUYER_OPENID = "abcdefg123";
-    private static final String ORDERID = "123";
+    private static final String ORDERID = "1525403690220449321";
 
     @Test
     public void create() {
 
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerAddress("杭州余杭区");
+        orderDTO.setBuyerAddress("杭州余杭区金家渡");
         orderDTO.setBuyerName("ccl");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
         orderDTO.setBuyerPhone("1234567890098");
         List<OrderDetail> orderDetailList = new ArrayList<>();
         OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setProductId("112");
+        orderDetail.setProductId("123456");
         orderDetail.setProductQuantity(2);
         orderDetailList.add(orderDetail);
         orderDTO.setOrderDetailList(orderDetailList);

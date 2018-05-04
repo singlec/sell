@@ -2,6 +2,8 @@ package com.imooc.enums;
 
 import lombok.Getter;
 
+import java.io.InvalidClassException;
+
 /**
  * Create By 一条狗
  * 2018/4/21 13:17
@@ -18,7 +20,10 @@ public enum ResultEnum {
     PAY_STATUS_ERROR(17, "订单支付状态不正确"),
     CART_EMPTY_ERROR(18,"购物车为空"),
     ORDER_OWNER_ERROR(19,"该订单不属于当前用户" ),
-    ORDER_NOT_EXIT(20,"订单不存在" );
+    ORDER_NOT_EXIT(20,"订单不存在" ),
+    ORDER_CANCEL_SUCCESS(21,"订单取消成功" ),
+    PRODUCT_ONSALE_SUCCESS(22,"商品上架成功" ),
+    PRODUCT_OFFSALE_SUCCESS(23, "商品下架成功");
     private Integer code;
     private String message;
 

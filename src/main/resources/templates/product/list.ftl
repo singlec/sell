@@ -16,30 +16,34 @@
                         <thead>
                         <tr>
                             <th>商品id</th>
-                            <th>姓名</th>
-                            <th>手机号</th>
-                            <th>地址</th>
-                            <th>金额</th>
-                            <th>订单状态</th>
-                            <th>支付状态</th>
+                            <th>名称</th>
+                            <th>图片</th>
+                            <th>单价</th>
+                            <th>库存</th>
+                            <th>描述</th>
+                            <th>类目</th>
                             <th>创建时间</th>
+                            <th>更新时间</th>
                             <th colspan="2">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <#list orderDTOPage.content as orderDTO>
+                        <#list productInfoPage.content as productInfo>
                         <tr>
-                            <td>${orderDTO.orderId}</td>
-                            <td>${orderDTO.buyerName}</td>
-                            <td>${orderDTO.buyerPhone}</td>
-                            <td>${orderDTO.buyerAddress}</td>
-                            <td>${orderDTO.orderAmount}</td>
-                            <td>${orderDTO.getOrderStatusEnum().getMessage()}</td>
-                            <td>${orderDTO.getPayStatusEnum().getMessage()}</td>
-                            <td>${orderDTO.createTime}</td>
-                            <td><a href="/sell/seller/order/detail?orderId=${orderDTO.orderId}">详情</a> </td>
-                            <#if orderDTO.orderStatus==0>
-                            <td><a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}">取消</a> </td>
+                            <td>${productInfo.productId}</td>
+                            <td>${productInfo.productName}</td>
+                            <td><img src="${productInfo.productIcon}" alt="图片在火星" style="height: 60px ;width: 60px"></td>
+                            <td>${productInfo.productPrice}</td>
+                            <td>${productInfo.productStock}</td>
+                            <td>${productInfo.productDescription}</td>
+                            <td>${productInfo.categoryType}</td>
+                            <td>${productInfo.createTime}</td>
+                            <td>${productInfo.updateTime}</td>
+                            <td><a href="/sell/seller/order/detail?orderId=">修改</a> </td>
+                            <#if productInfo.productStatus==0>
+                            <td><a href="/sell/seller/product/off_sale?productId=${productInfo.productId}">下架</a> </td>
+                            <#else >
+                            <td><a href="/sell/seller/product/on_sale?productId=${productInfo.productId}">上架</a> </td>
                             </#if>
                         </tr>
                         </#list>
@@ -55,7 +59,7 @@
                             <a href="/seller/order/list?page=${currentPage - 1}&size=${size}">上一页</a>
                         </#if>
                             </li>
-                    <#list 1..orderDTOPage.getTotalPages() as index>
+                    <#list 1..productInfoPage.getTotalPages() as index>
                         <li>
                             <#if index==currentPage>
                                 <a class="disabled" href="#">${index}</a>
@@ -65,10 +69,10 @@
                         </li>
                     </#list>
                             <li>
-                        <#if currentPage gte orderDTOPage.getTotalPages()>
+                        <#if currentPage gte productInfoPage.getTotalPages()>
                             <a class="disabled" href="#">下一页</a>
                         <#else>
-                            <a href="/sell/seller/order/list?page=${orderDTOPage.getTotalPages()}&size=${size}">下一页</a>
+                            <a href="/sell/seller/order/list?page=${productInfoPage.getTotalPages()}&size=${size}">下一页</a>
                         </#if>
                             </li>
                         </ul>

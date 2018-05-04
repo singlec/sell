@@ -38,11 +38,11 @@ public class CategoryServiceImplTest {
 
     @Test
     public void save() {
-/*        ProductCategory productCategory = new ProductCategory();
+        ProductCategory productCategory = new ProductCategory();
         productCategory.setCategoryId(3);
-        productCategory.setCategoryName("食神必备");
-        productCategory.setCategoryType(8);*/
-        ProductCategory productCategory = categoryService.findOne(3);
+        productCategory.setCategoryName("特色烧烤");
+        productCategory.setCategoryType(7);
+//        ProductCategory productCategory = categoryService.findOne(3);
         ProductCategory save = categoryService.save(productCategory);
         System.out.println(save);
     }
