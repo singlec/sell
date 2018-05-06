@@ -6,18 +6,17 @@
 
     <#--边栏sideba-->
     <#include "../common/nav.ftl">
-
     <#--主要内容content-->
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <form role="form">
+                    <form role="form" method="post" action="/sell/seller/product/save">
                         <div class="form-group">
                             商品名称<input type="text" class="form-control" name="productName" id="productName" value="${(productInfo.productName)!""}" />
                         </div>
                         <div class="form-group">
-                            价格<input type="text" class="form-control" name="productPrice" id="productPrice" value="${(productInfo.productPrice)!""}" />
+                            价格<input type="text" class="form-control" name="productPrice" id="productPrice" value="${(productInfo.productPrice)!''}" />
                         </div>
                         <div class="form-group">
                             库存<input type="text" class="form-control" name="productStock" id="productStock" value="${(productInfo.productStock)!""}" />
@@ -35,13 +34,14 @@
                             <select class="form-control" name="categoryType">
                                 <#list categoryList as category>
 
-                                    <option value="${category.categoryId}"
+                                    <option value="${category.categoryType}"
                                             <#if (productInfo.categoryType)?? && category.categoryId==productInfo.categoryType>selected="selected"</#if>
                                     >${category.categoryName}</option>
 
                                 </#list>
                             </select>
                         </div>
+                        <input hidden type="text" name="productId" value="${(productInfo.productId)!''}"/>
                         </div> <button type="submit" class="btn btn-default">提交</button>
                     </form>
                 </div>

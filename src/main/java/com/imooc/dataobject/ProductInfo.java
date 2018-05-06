@@ -1,5 +1,6 @@
 package com.imooc.dataobject;
 
+import com.imooc.enums.ProductStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -39,7 +40,7 @@ public class ProductInfo {
     private Integer categoryType;
 
     /** 商品状态,0正常 1下架. */
-    private Integer productStatus;
+    private Integer productStatus= ProductStatusEnum.UP.getCode();
 
     /** 创建时间 */
     private Date createTime;

@@ -32,14 +32,14 @@
                         <tr>
                             <td>${productInfo.productId}</td>
                             <td>${productInfo.productName}</td>
-                            <td><img src="${productInfo.productIcon}" alt="图片在火星" style="height: 60px ;width: 60px"></td>
+                            <td><img src="${(productInfo.productIcon)!''}" alt="图片在火星" style="height: 60px ;width: 60px"></td>
                             <td>${productInfo.productPrice}</td>
                             <td>${productInfo.productStock}</td>
                             <td>${productInfo.productDescription}</td>
                             <td>${productInfo.categoryType}</td>
                             <td>${productInfo.createTime}</td>
                             <td>${productInfo.updateTime}</td>
-                            <td><a href="/sell/seller/order/detail?orderId=">修改</a> </td>
+                            <td><a href="/sell/seller/product/index?productId=${productInfo.productId}">修改</a> </td>
                             <#if productInfo.productStatus==0>
                             <td><a href="/sell/seller/product/off_sale?productId=${productInfo.productId}">下架</a> </td>
                             <#else >

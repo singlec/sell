@@ -53,8 +53,14 @@ public class SellerOrderController {
     @GetMapping("/detail")
     public ModelAndView detail(@RequestParam(name = "orderId") String orderId,
                                    Map<String,Object> map) {
-        OrderDTO orderDTO = orderService.findOne(orderId);
-        map.put("orderDTO", orderDTO);
+        try {
+            OrderDTO orderDTO = orderService.findOne(orderId);
+            map.put("orderDTO", orderDTO);
+        } catch (SellException e) {
+            map.put("msg", e.getMessage());
+            map.put("url", "/sell/seller/order/list");
+            return new ModelAndView("common/error", map);
+        }
 
         return new ModelAndView("order/detail", map);
     }

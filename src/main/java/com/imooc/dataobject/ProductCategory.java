@@ -2,11 +2,13 @@ package com.imooc.dataobject;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Create By 一条狗
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 @Table(name = "product_category")
 @Entity
 @Data
+@DynamicUpdate
 public class ProductCategory {
     /** 类目id */
     @Id
@@ -26,6 +29,12 @@ public class ProductCategory {
 
     /** 类目编号 */
     private Integer categoryType;
+
+    /** 创建时间 */
+    private Date createTime;
+
+    /** 更新时间 */
+    private Date updateTime;
 
     public ProductCategory() {
     }
