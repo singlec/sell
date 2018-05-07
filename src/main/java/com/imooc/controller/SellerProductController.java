@@ -2,13 +2,10 @@ package com.imooc.controller;
 
 import com.imooc.dataobject.ProductCategory;
 import com.imooc.dataobject.ProductInfo;
-import com.imooc.dto.OrderDTO;
-import com.imooc.enums.ProductStatusEnum;
 import com.imooc.enums.ResultEnum;
 import com.imooc.exception.SellException;
 import com.imooc.form.ProductForm;
 import com.imooc.service.CategoryService;
-import com.imooc.service.OrderService;
 import com.imooc.service.ProductService;
 import com.imooc.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;

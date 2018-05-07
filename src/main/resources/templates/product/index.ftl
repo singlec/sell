@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             图片
-                            <img src="${(productInfo.productIcon)!""}" alt="加载失败" style="width: 200px;height: 200px">
+                            <img src="${(productInfo.productIcon)!""}" style="width: 100px;height: 100px">
                             <input type="text" class="form-control" name="productIcon" id="productIcon" value="${(productInfo.productIcon)!""}" />
                         </div>
                         <div class="form-group">

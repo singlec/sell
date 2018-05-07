@@ -7,6 +7,7 @@ import lombok.Getter;
  * Create By 一条狗
  * 2018/4/21 13:16
  */
+@Getter
 public class SellException extends RuntimeException {
     private Integer code;
 

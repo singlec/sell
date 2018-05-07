@@ -2,22 +2,20 @@ package com.imooc.dataobject;
 
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Create By 一条狗
  * 2018/4/14 11:03
  */
-@Table(name = "product_category")
+//@Table(name = "product_category")
 @Entity
 @Data
-@DynamicUpdate
+//@DynamicUpdate
 public class ProductCategory {
     /** 类目id */
     @Id

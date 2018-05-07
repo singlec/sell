@@ -20,4 +20,11 @@ public class ResultVOUtil {
         resultVO.setData(data);
         return resultVO;
     }
+
+    public static ResultVO error(Integer code,String message) {
+        ResultVO<Object> resultVO= new ResultVO<>();
+        resultVO.setCode(code);
+        resultVO.setMsg(message);
+        return resultVO;
+    }
 }
