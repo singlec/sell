@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * mybatis注解方式的使用
  */
+@Mapper
 public interface ProductCategoryMapper {
 
     @Insert("insert into product_category(category_name,category_type) values (#{categoryName,jdbcType=VARCHAR},#{categoryType,jdbcType=INTEGER})")
